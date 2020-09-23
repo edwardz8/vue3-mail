@@ -1,18 +1,35 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Title msg="VMail Inbox" />
+
+   <!--  <h2>{{ emailSelection.emails.size }} emails selected</h2> -->
+
+    <Suspense>
+      <template #default><MailTable /></template>
+      <template #fallback>
+        ...Loading
+      </template>
+    </Suspense>
+
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Title from '@/components/Title.vue'
+import { format } from 'date-fns'
+import MailTable from '@/components/MailTable.vue'
+import useEmailSelection from '@/composables/use-email-selection'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    Title,
+    MailTable
+  },
+  setup() {
+    return {
+      emailSelection: useEmailSelection()
+    }
   }
-}
+};
 </script>

@@ -8,7 +8,12 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "axios": "^0.20.0",
+    "buefy": "^0.9.3",
     "core-js": "^3.6.5",
+    "date-fns": "^2.16.1",
+    "faker": "^5.1.0",
+    "marked": "^1.1.1",
     "vue": "^3.0.0-0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
